@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?variable-resolver class="org.zkoss.zkplus.spring.DelegatingVariableResolver"?>
+<zk xmlns="http://www.zkoss.org/2005/zul">
+    <window id="winModal" title="Ejercicio de curso IOS" width="800px" height="350px"  >
+        <borderlayout>
+            <west title="Pedidos" size="40%" flex="true" maxsize="400" splittable="true" collapsible="true" apply="MVC.ViewModelC">
+                <grid>
+                    <columns>
+                        <column id="bebidas" label="Bebidas"  />
+                        <column id="alimentos" label="Alimentos"/>
+                    </columns>
+                    <rows>
+                        <row>	
+                            <listbox id="bebiList">
+                                <listitem forEach="${DataSource.elementsListBebi}">
+				<listcell label="${each.nombre}"/>
+				</listitem>
+                            </listbox>    
+                            <listbox id="aliList">
+                                <listitem forEach="${DataSource.elementsListAlim}">
+				<listcell label="${each.nombre}"/>
+				</listitem>
+                            </listbox>
+                        </row>
+                    </rows>
+                </grid>          
+            </west>
+            <center title="Menú" border="none" flex="true">
+                <grid>
+                    <columns>
+                        <column label=""/>
+                        
+                    </columns>
+                    <rows>
+                        <row>
+                           <div> 
+                            <listbox id="costoPrin" visible="false">
+                                <listhead>
+                                    <listheader label="Costo Bebidas"/>
+                                    <listheader label="Producto"/>
+                                    <listheader label="Proveedor"/>
+                                </listhead>
+                                
+                                
+                                
+                            </listbox>
+                            <listbox id="costoPrin2" visible="false">
+                                <listhead>
+                                    <listheader label="Costo Alimentos"/>
+                                    <listheader label="Producto"/>
+                                    <listheader label="Proveedor"/>
+                                </listhead>
+                            </listbox>
+                            </div>
+                        </row>
+                    </rows>
+                </grid>
+                                
+                                
+            </center>
+            <east title="Costo" size="15%"  flex="true" maxsize="250" splittable="true" collapsible="true">
+	
+            <grid>
+		<columns>
+			<column label=""/>
+			
+		</columns>
+		<rows>
+			<row>	
+                        <label id="costoTotal"/>
+			</row>
+		</rows>
+	</grid>
+        
+            </east>
+        </borderlayout>
+    </window>
+</zk>
